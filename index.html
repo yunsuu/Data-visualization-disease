@@ -1,0 +1,287 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js">
+</script>
+
+<div id="noAura" style="width: 1500px; height: 800px;"></div>
+<div id="linechart_material" style="width: 900px; height: 500px"></div>
+<div id="bar_1" style="width: 800px; height: 600px;"></div>
+<div id="bar_2" style="width: 800px; height: 600px;"></div>
+<div id="bar_3" style="width: 800px; height: 600px;"></div>
+
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['line']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', '나이');
+        data.addColumn('number', '순환계 질환');
+        data.addColumn('number', '호흡계 질환');
+        data.addColumn('number', '소화계 질환');
+        data.addColumn('number', '근골결합 질환');
+        data.addColumn('number', '질병 외 사고');
+
+        data.addRows([
+            ['00대', 386, 763813, 11777, 1841, 11502],
+
+            ['10대', 1054, 642499, 25359, 11904, 50025],
+
+            ['20대', 1872, 256063, 50167, 46912, 75468],
+
+            ['30대', 5991, 273378, 64967, 84917, 80826],
+
+            ['40대', 35772, 386754, 96120, 173015, 103592],
+
+            ['50대', 128922, 328802, 127630, 332903, 134057],
+
+            ['60대', 264905, 350353, 155022, 506014, 144754],
+
+            ['70대', 262729, 241285, 115870, 493171, 90348],
+
+            ['80대', 214978, 147712, 77494, 388101, 60422]
+        ]);
+
+        var options = {
+            chart: {
+                title: '각 연령, 상위 5개의 질병의 추이 ',
+                subtitle: 'X축:연령,  Y축:질병이 진단된 횟수'
+            },
+            width: 900,
+            height: 500
+        };
+
+        var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+        chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+</script>
+
+<script>
+    google.charts.load('current', {
+        'packages': ['bar']
+    });
+    google.charts.setOnLoadCallback(drawStuff);
+
+    function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+            ['병명', '진단수'],
+            ["기관지염", 1103359],
+            ["원발성고혈압", 680425],
+            ["2형당뇨병", 202139],
+            ["급성편도염", 197887],
+            ['앨러지비염', 193619]
+        ]);
+
+        var options = {
+            width: 800,
+            height: 400,
+            legend: {
+                position: 'none'
+            },
+            chart: {
+                title: '가장 많이 진단된 질병',
+                subtitle: 'X축:병명,  Y축:진단된 횟수'
+            },
+            bar: {
+                groupWidth: "70%"
+            },
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('bar_1'));
+        // Convert the Classic options to Material options.
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    };
+</script>
+
+
+<script>
+    google.charts.load('current', {
+        'packages': ['bar']
+    });
+    google.charts.setOnLoadCallback(drawStuff);
+
+    function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+            ['병명', '금액(원)'],
+            ["괴사성근막염", 26589070],
+            ["원발성고혈압", 25537160],
+            ["고탄성호흡부전", 24963630],
+            ["세포림프종", 18183060],
+            ['테아용혈질환', 18126240]
+        ]);
+
+        var options = {
+            width: 800,
+            height: 400,
+            legend: {
+                position: 'none'
+            },
+            chart: {
+                title: '치료비가 가장 많이나온 질병',
+                subtitle: 'X축:병명,  Y축:금액(원)'
+            },
+            bar: {
+                groupWidth: "70%"
+            },
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('bar_2'));
+        // Convert the Classic options to Material options.
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    };
+</script>
+
+<script>
+    google.charts.load('current', {
+        'packages': ['bar']
+    });
+    google.charts.setOnLoadCallback(drawStuff);
+
+    function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+            ['병명', '효율'],
+            ["치매", 6358635],
+            ["신장병", 2774642],
+            ["뇌경색증", 1385244],
+            ["무릎관절증", 1247280],
+            ['폐렴', 1120588]
+        ]);
+
+        var options = {
+            width: 800,
+            height: 400,
+            legend: {
+                position: 'none'
+            },
+            chart: {
+                title: '가장 효율이 좋은 질병',
+                subtitle: 'X축:병명,  Y축:효율'
+            },
+            bar: {
+                groupWidth: "70%"
+            },
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('bar_3'));
+        // Convert the Classic options to Material options.
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    };
+</script>
+
+
+<script type="text/javascript">
+    google.charts.load("current", {
+        packages: ["corechart"]
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+            ['ID', '나이', '질병코드 유형', '', '비율(%)'],
+
+            ['', 90, 22, '', 0],
+            ['', 0, 0, '', 5],
+            ['', 0, 7, '', 9],
+            ['', 0, 9, '', 73],
+
+            ['', 10, 0, '', 5],
+            ['', 10, 6, '', 6],
+            ['', 10, 7, '', 4],
+            ['', 10, 9, '', 64],
+            ['', 10, 11, '', 5],
+            ['', 10, 18, '', 5],
+
+            ['', 20, 0, '', 5],
+            ['', 20, 4, '', 3],
+            ['', 20, 6, '', 7],
+            ['', 20, 9, '', 36],
+            ['', 20, 10, '', 7],
+            ['', 20, 11, '', 9],
+            ['', 20, 12, '', 6],
+            ['', 20, 13, '', 4],
+            ['', 20, 18, '', 10],
+
+            ['', 30, 0, '', 6],
+            ['', 30, 4, '', 3],
+            ['', 30, 6, '', 5],
+            ['', 30, 9, '', 29],
+            ['', 30, 10, '', 7],
+            ['', 30, 11, '', 8],
+            ['', 30, 12, '', 9],
+            ['', 30, 13, '', 8],
+            ['', 30, 18, '', 8],
+            ['', 30, 20, '', 3],
+
+            ['', 40, 0, '', 4],
+            ['', 40, 4, '', 3],
+            ['', 40, 6, '', 5],
+            ['', 40, 9, '', 29],
+            ['', 40, 10, '', 7],
+            ['', 40, 11, '', 6],
+            ['', 40, 12, '', 13],
+            ['', 40, 13, '', 6],
+            ['', 40, 18, '', 7],
+
+            ['', 50, 0, '', 3],
+            ['', 50, 3, '', 5],
+            ['', 50, 6, '', 5],
+            ['', 50, 8, '', 7],
+            ['', 50, 9, '', 19],
+            ['', 50, 10, '', 7],
+            ['', 50, 11, '', 5],
+            ['', 50, 12, '', 19],
+            ['', 50, 13, '', 6],
+            ['', 50, 18, '', 7],
+
+            ['', 60, 3, '', 7],
+            ['', 60, 6, '', 5],
+            ['', 60, 8, '', 11],
+            ['', 60, 9, '', 15],
+            ['', 60, 10, '', 6],
+            ['', 60, 11, '', 4],
+            ['', 60, 12, '', 22],
+            ['', 60, 13, '', 5],
+            ['', 60, 18, '', 6],
+
+            ['', 70, 3, '', 7],
+            ['', 70, 6, '', 7],
+            ['', 70, 8, '', 13],
+            ['', 70, 9, '', 12],
+            ['', 70, 10, '', 6],
+            ['', 70, 11, '', 3],
+            ['', 70, 12, '', 25],
+            ['', 70, 13, '', 5],
+            ['', 70, 18, '', 4],
+
+            ['', 80, 3, '', 6],
+            ['', 80, 4, '', 4],
+            ['', 80, 6, '', 7],
+            ['', 80, 8, '', 15],
+            ['', 80, 9, '', 10],
+            ['', 80, 10, '', 5],
+            ['', 80, 11, '', 3],
+            ['', 80, 12, '', 27],
+            ['', 80, 13, '', 5],
+            ['', 80, 18, '', 4],
+        ]);
+
+        var options = {
+            title: '연령별 질병코드 진단 비율   ' +
+                '   (X축:연령,  Y축:질병코드 숫자,  크기:각 연령에서 질병이 진단된 비율)',
+            hAxis: {
+                title: '나이(대)'
+            },
+            vAxis: {
+                title: '질병코드(질병유형)'
+            },
+            bubble: {}
+        };
+
+        var chart = new google.visualization.BubbleChart(document.getElementById('noAura'));
+
+        chart.draw(data, options);
+    }
+</script>
